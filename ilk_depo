@@ -1,0 +1,20 @@
+sozluk={"lol":"laughing out loud(yükses sesle kahkaha atmak)","cringe":"Utandırıcı",
+"rofl":"rolling on the floor(yerde yuvarlanıyorum[gülmekten])",
+"creepy":"korkutucu","aggro":"sinirlenmek","trigger":"sinirlenmek","vibe":"durum",
+"target":"tek bir kişiyi hedef almak","btw":"by the way(bu arada)",
+"tbh":"to be honest(dürüst olmak gerekirse)","rn":"right now(şuan)",
+"idk":"i dont know(bilmiyorum)","idc":"i dont care(umursamıyorum)",
+"imo":"in my opinion(bana göre)","asap":"as soon as possible(en yakın zamanda)",
+"irl":"in real life(gerçek hayatta)","brb":"be right back(hemen geliyorum)",
+"bff":"best friends forever(sonsuza kadar en iyi arkadaş)","bc":"becouse(çünkü)",
+}
+
+#kelime ararken yoruldum kodlama daha kolaydı.
+
+for i in range(5):
+    x = input("Anlamadığınız Bir Kelime Yazın:").lower()
+
+    if x in sozluk.keys():
+        print(sozluk[x])
+    else:
+        print("Kelime Mevcut Değil.")
