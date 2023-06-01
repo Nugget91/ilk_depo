@@ -9,8 +9,6 @@ sozluk={"lol":"laughing out loud(yükses sesle kahkaha atmak)","cringe":"Utandı
 "bff":"best friends forever(sonsuza kadar en iyi arkadaş)","bc":"becouse(çünkü)",
 }
 
-#kelime ararken yoruldum kodlama daha kolaydı.
-
 for i in range(5):
     x = input("Anlamadığınız Bir Kelime Yazın:").lower()
 
