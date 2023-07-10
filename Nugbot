@@ -1,0 +1,51 @@
+import discord
+import random
+from discord.ext import  commands
+import os
+
+# ayricaliklar (intents) değişkeni botun ayrıcalıklarını depolayacak
+intents = discord.Intents.default()
+# Mesajları okuma ayrıcalığını etkinleştirelim
+intents.message_content = True
+# istemci (client) değişkeniyle bir bot oluşturalım ve ayrıcalıkları ona aktaralım
+client = commands.Bot(intents=intents, command_prefix = '!')
+
+@client.event
+async def on_ready():
+    print(f'We have logged in as {client.user}')
+
+ny = 0
+
+@client.event
+async def on_message(message):
+    global ny
+    if message.author == client.user:
+        return
+    elif message.content.startswith("!addmoney"):
+        ny += 100
+    elif message.content.startswith("!money"):
+        await message.channel.send(ny)
+        
+@client.command()
+async def cf (ctx, *, text):
+    global ny
+    ny -= int(text)
+    ws = random.randint(1,2)
+    s = random.randint(1,2)
+    if ws == s:
+        ny += int(text)*2
+        await ctx.send("You Have Won " , text , " Nuggency!")
+    elif ws != s:
+        ny -= int(text)*2
+        await ctx.send("You Have Lost " , text , " Nuggency!")
+async def cf (ctx, *, text):
+    global ny
+    dice = random.randint(-6,6)
+    if dice <= -1:
+        await ctx.send("You Have Lost " , dice*int(text) , " Nuggency!")
+        ny -= dice*int(text)
+    elif dice >= 1:
+        await ctx.send("You Have Won " , dice*int(text) , " Nuggency!")
+        ny += dice*int(text)
+    elif dice == 0:
+        await ctx.send("You Haven't Won or Lost Anything")
